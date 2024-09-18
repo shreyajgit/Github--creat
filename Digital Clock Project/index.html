@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock Using Javascript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="container">
+
+      <div class="clock">
+        <div class="dates">
+          <span id="date" class="tym">00</span>
+          <span class="tym">.</span>
+          <span id="month" class="tym">00</span>
+          <span class="tym">.</span>
+          <span id="year" class="tym">XXXX</span>
+          <span class="tym">,</span>
+          <span id="day" class="tym">abc</span>
+        </div>
+        <div class="time">
+          <span id="hrs">00</span>
+        <span>:</span>
+        <span id="min">00</span>
+        <span>:</span>
+        <span id="sec">00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+    let hrs = document.getElementById("hrs")
+    let min = document.getElementById("min")
+    let sec = document.getElementById("sec")
+    let date = document.getElementById("date");
+    let month = document.getElementById("month");
+    let year = document.getElementById("year");
+    let day = document.getElementById("day");
+
+    const days = [
+  { key: 0, value: "Sunday" },
+  { key: 1, value: "Monday" },
+  { key: 2, value: "Tueday" },
+  { key: 3, value: "Wednesday" },
+  { key: 4, value: "Thusday" },
+  { key: 5, value: "Friday" },
+  { key: 6, value: "Saturday" }
+];
+   
+
+    setInterval(() => {
+
+let currentDate = new Date();
+
+    date.innerHTML = (currentDate.getDate() < 10 ? "0" : "") + currentDate.getDate();
+    month.innerHTML = (currentDate.getMonth() < 10 ? "0" : "") + currentDate.getMonth();
+    year.innerHTML = currentDate.getFullYear();
+    day.innerHTML = days[currentDate.getDay()].value;
+
+
+
+      let currentTime = new Date();
+
+
+      hrs.innerHTML = (currentTime.getHours() < 10 ? "0" : "") + currentTime.getHours();
+      min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+      sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+
+    }, 1000)
+
+
+  </script>
+
+
+</body>
+
+</html>
